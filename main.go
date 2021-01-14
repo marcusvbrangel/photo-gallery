@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
+	"github.com/gorilla/mux"
 	"github.com/julienschmidt/httprouter"
 )
 
@@ -29,10 +30,8 @@ func Hello(w http.ResponseWriter, r *http.Request, ps httprouter.Params) {
 
 func main() {
 
-	router := httprouter.New()
-	router.GET("/hello/:name", Hello)
-
-	// http.HandleFunc("/", handlerFunc)
-	http.ListenAndServe(":3000", router)
+	r := mux.NewRouter()
+	r.HandleFunc("/", handlerFunc)
+	http.ListenAndServe(":3000", r)
 
 }
