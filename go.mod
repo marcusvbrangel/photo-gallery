@@ -1,4 +1,4 @@
-module marcusrangel.net/photo-gallery
+module marcusvbrangel/photo-gallery
 
 go 1.15
 
